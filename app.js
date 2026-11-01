@@ -29,6 +29,16 @@ const initializeDBAndServer = async () => {
 
 initializeDBAndServer();
 
+// Root route
+app.get("/", (request, response) => {
+    response.status(200).json({
+        message: "Books API is running",
+        endpoints: {
+            books: "/books/",
+        },
+    });
+});
+
 // GET all books
 app.get("/books/", async (request, response) => {
     try {
